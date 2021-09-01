@@ -29,9 +29,26 @@ class HomeView extends StatelessWidget {
             _cloudIcon(),
             _temprature(),
             _location(),
+            _date(),
           ],
         ),
       ),
+    );
+  }
+
+  _date() {
+    return Row(
+      children: [
+        Text(
+          'Today',
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Text(
+          '23.11.13',
+        ),
+      ],
     );
   }
 
