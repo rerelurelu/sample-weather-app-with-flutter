@@ -17,12 +17,29 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          _cloudIcon(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.only(
+          left: 20,
+          right: 20,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            _cloudIcon(),
+            _temprature(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  _temprature() {
+    return Text(
+      '-10',
+      style: TextStyle(
+        fontSize: 80,
+        fontWeight: FontWeight.w100,
       ),
     );
   }
