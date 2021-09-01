@@ -5,8 +5,19 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: null,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Weather'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/setting');
+            },
+            icon: Icon(Icons.settings),
+          ),
+        ],
+      ),
+      body: Container(),
     );
   }
 }
