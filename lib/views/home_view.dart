@@ -28,9 +28,24 @@ class HomeView extends StatelessWidget {
           children: [
             _cloudIcon(),
             _temprature(),
+            _location(),
           ],
         ),
       ),
+    );
+  }
+
+  _location() {
+    return Row(
+      children: [
+        Icon(Icons.place),
+        SizedBox(
+          width: 10,
+        ),
+        Text(
+          'Oslo, No',
+        ),
+      ],
     );
   }
 
