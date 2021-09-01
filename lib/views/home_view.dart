@@ -17,7 +17,23 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          _cloudIcon(),
+        ],
+      ),
+    );
+  }
+
+  _cloudIcon() {
+    return Padding(
+      padding: const EdgeInsets.all(28),
+      child: Icon(
+        Icons.cloud,
+        size: 80,
+      ),
     );
   }
 }
