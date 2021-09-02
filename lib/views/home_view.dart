@@ -15,21 +15,66 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(
-          left: 20,
-          right: 20,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.grey.shade800,
+              Colors.black,
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            _cloudIcon(),
-            _temprature(),
-            _location(),
-            _date(),
-            _hourlyPrediction(),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 20,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              _cloudIcon(),
+              _temprature(),
+              _location(),
+              _date(),
+              _hourlyPrediction(),
+              _weeklyPrediction(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  final weeks = ['1', '2', '3', '1', '2', '3', '1', '2', '3', '1', '2', '3'];
+
+  _weeklyPrediction() {
+    return Expanded(
+      child: Container(
+        height: 100,
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(color: Colors.white),
+            bottom: BorderSide(color: Colors.white),
+          ),
+        ),
+        child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemCount: times.length,
+          itemBuilder: (context, index) {
+            return Container(
+              width: 50,
+              child: Card(
+                child: Center(
+                  child: Text(
+                    '${times[index]}',
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
@@ -40,12 +85,6 @@ class HomeView extends StatelessWidget {
   _hourlyPrediction() {
     return Container(
       height: 100,
-      decoration: BoxDecoration(
-        border: Border(
-          top: BorderSide(color: Colors.white),
-          bottom: BorderSide(color: Colors.white),
-        ),
-      ),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: times.length,
