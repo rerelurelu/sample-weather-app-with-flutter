@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,8 +28,39 @@ class HomeView extends StatelessWidget {
             _temprature(),
             _location(),
             _date(),
+            _hourlyPrediction(),
           ],
         ),
+      ),
+    );
+  }
+
+  final times = ['1', '2', '3', '1', '2', '3', '1', '2', '3', '1', '2', '3'];
+
+  _hourlyPrediction() {
+    return Container(
+      height: 100,
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(color: Colors.white),
+          bottom: BorderSide(color: Colors.white),
+        ),
+      ),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: times.length,
+        itemBuilder: (context, index) {
+          return Container(
+            width: 50,
+            child: Card(
+              child: Center(
+                child: Text(
+                  '${times[index]}',
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
